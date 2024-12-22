@@ -6,14 +6,6 @@ SET time_zone = "+00:00";
 -- Database: `restoran`
 --
 
-CREATE TABLE `admins` (
-  `id` int(10) NOT NULL,
-  `adminname` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 CREATE TABLE `bookings` (
   `id` int(10) NOT NULL,
   `name` varchar(200) NOT NULL,
@@ -36,15 +28,6 @@ CREATE TABLE `cart` (
   `created-at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `foods` (
-  `id` int(10) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `image` varchar(200) NOT NULL,
-  `description` text NOT NULL,
-  `price` varchar(20) NOT NULL,
-  `meal_id` int(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `orders` (
   `id` int(10) NOT NULL,
@@ -61,6 +44,7 @@ CREATE TABLE `orders` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
 CREATE TABLE `reviews` (
   `id` int(10) NOT NULL,
   `review` text NOT NULL,
@@ -76,8 +60,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `bookings`
   ADD PRIMARY KEY (`id`);
@@ -85,8 +67,6 @@ ALTER TABLE `bookings`
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `foods`
-  ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
@@ -97,17 +77,12 @@ ALTER TABLE `reviews`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `admins`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 ALTER TABLE `bookings`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 ALTER TABLE `cart`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
-ALTER TABLE `foods`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 ALTER TABLE `orders`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
@@ -116,6 +91,43 @@ ALTER TABLE `reviews`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2; 
+
+
+CREATE TABLE `foods` (
+  `id` int(10) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `description` text NOT NULL,
+  `price` varchar(20) NOT NULL,
+  `meal_id` int(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+ALTER TABLE `foods`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `foods`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+
+
+CREATE TABLE `admins` (
+  `id` int(10) NOT NULL,
+  `adminname` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `admins`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 
 COMMIT;
